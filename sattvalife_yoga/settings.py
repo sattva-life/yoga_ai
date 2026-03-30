@@ -9,7 +9,7 @@ SECRET_KEY = os.getenv(
 )
 
 DEBUG = False
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["72.62.4.77"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -75,8 +75,11 @@ USE_TZ = True
 
 
 
-STATIC_URL = "/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
