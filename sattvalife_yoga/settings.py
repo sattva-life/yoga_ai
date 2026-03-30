@@ -8,9 +8,9 @@ SECRET_KEY = os.getenv(
     "django-insecure-temp-key-change-this"
 )
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", ".onrender.com"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
