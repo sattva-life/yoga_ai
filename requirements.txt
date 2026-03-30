@@ -11,6 +11,8 @@ opencv-python-headless==4.9.0.80
 mediapipe==0.10.11
 protobuf==3.20.3
 pillow==10.4.0
+pandas==2.3.3
+
 
 asgiref==3.11.0
 sqlparse==0.5.3
