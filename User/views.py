@@ -63,12 +63,31 @@ POSE_LABEL_ENCODER_PATH = resolve_model_path("label_encoder.pkl")
 DEFECT_MODEL_PATH = resolve_model_path("tree_defect_model.pkl")
 DEFECT_LABEL_ENCODER_PATH = resolve_model_path("defect_label_encoder.pkl")
 
-pose_model = joblib.load(POSE_MODEL_PATH)
-pose_label_encoder = joblib.load(POSE_LABEL_ENCODER_PATH)
-defect_model = joblib.load(DEFECT_MODEL_PATH)
-defect_label_encoder = joblib.load(DEFECT_LABEL_ENCODER_PATH)
+pose_model = None
+pose_label_encoder = None
+defect_model = None
+defect_label_encoder = None
+pose = None
 
 
+def load_models():
+    global pose_model, pose_label_encoder, defect_model, defect_label_encoder, pose
+
+    if pose_model is None:
+        pose_model = joblib.load(POSE_MODEL_PATH)
+        pose_label_encoder = joblib.load(POSE_LABEL_ENCODER_PATH)
+        defect_model = joblib.load(DEFECT_MODEL_PATH)
+        defect_label_encoder = joblib.load(DEFECT_LABEL_ENCODER_PATH)
+
+    if pose is None:
+        mp_pose = mp.solutions.pose
+        pose = mp_pose.Pose(
+            static_image_mode=False,
+            model_complexity=1,   # 🔥 reduce memory
+            smooth_landmarks=True,
+            min_detection_confidence=0.55,
+            min_tracking_confidence=0.55,
+        )
 # =========================================================
 # MEDIAPIPE SETUP
 # =========================================================
@@ -906,6 +925,7 @@ def build_angle_texts(raw_pts, landmarks, analysis):
 # =========================================================
 @csrf_exempt
 def predict_yoga_pose(request):
+    load_models()   # 🔥 ADD THIS LINE
     global PERFECT_HOLD_COUNT
 
     if request.method != "POST":
