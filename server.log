@@ -1,0 +1,12 @@
+nohup: ignoring input
+[2026-03-31 06:43:59 +0000] [22726] [INFO] Starting gunicorn 23.0.0
+[2026-03-31 06:43:59 +0000] [22726] [INFO] Listening at: http://0.0.0.0:8000 (22726)
+[2026-03-31 06:43:59 +0000] [22726] [INFO] Using worker: sync
+[2026-03-31 06:43:59 +0000] [22727] [INFO] Booting worker with pid: 22727
+[2026-03-31 07:19:04 +0000] [22726] [INFO] Handling signal: hup
+[2026-03-31 07:19:04 +0000] [22726] [INFO] Hang up: Master
+[2026-03-31 07:19:04 +0000] [23082] [INFO] Booting worker with pid: 23082
+[2026-03-31 07:19:04 +0000] [22726] [ERROR] Worker (pid:22727) was sent SIGHUP!
+[2026-03-31 14:33:58 +0000] [23082] [INFO] Worker exiting (pid: 23082)
+[2026-03-31 14:33:58 +0000] [22726] [INFO] Handling signal: term
+[2026-03-31 14:34:01 +0000] [22726] [INFO] Shutting down: Master
