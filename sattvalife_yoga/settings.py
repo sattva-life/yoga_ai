@@ -9,7 +9,11 @@ SECRET_KEY = os.getenv(
 )
 
 DEBUG = False
-ALLOWED_HOSTS = ["72.62.4.77"]
+ALLOWED_HOSTS = [
+    "sattvalife-yoga-ai.xyz",
+    "www.sattvalife-yoga-ai.xyz",
+    "72.62.4.77"
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
